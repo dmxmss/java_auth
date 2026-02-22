@@ -46,6 +46,7 @@ public class UserService {
 
         String hashed = passwordEncoder.encode(password);
         User user = new User(name, hashed);
+        user.setScore(0);
 
         userRepository.save(user);
         return user;
