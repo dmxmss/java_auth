@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.example.java_auth.dto.UserDto;
 import com.example.java_auth.repository.User;
 import com.example.java_auth.repository.UserRepository;
 
@@ -20,17 +21,19 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public User getUserInfoByName(String name) {
+    public UserDto getUserInfoByName(String name) {
         Optional<User> optUser = userRepository.findByName(name);
         if (optUser.isEmpty()) {
             throw new IllegalStateException("user with name " + name + " not found");
         }
 
         User user = optUser.get();
-        return user;
+
+        UserDto res = new UserDto(user.getName(), user.getScore());
+        return res;
     }
 
-    public User createUser(String name, String password) {
+    public UserDto createUser(String name, String password) {
         if (password.isBlank()) {
             throw new IllegalStateException("invalid password");
         }
@@ -49,6 +52,8 @@ public class UserService {
         user.setScore(0);
 
         userRepository.save(user);
-        return user;
+
+        UserDto res = new UserDto(user.getName(), user.getScore());
+        return res;
     }
 }
