@@ -15,18 +15,18 @@ public class User {
 
     private String name;
     private Integer score;
-    private String hashedPassword;
+    private String password;
 
-    public User(Long id, String name, Integer score, String hashedPassword) {
+    public User(Long id, String name, Integer score, String password) {
         this.id = id;
         this.name = name;
         this.score = score;
-        this.hashedPassword = hashedPassword;
+        this.password = password;
     }
 
-    public User(String name, String hashedPassword) {
+    public User(String name, String password) {
         this.name = name;
-        this.hashedPassword = hashedPassword;
+        this.password = password;
     }
 
     public User() {}
@@ -48,11 +48,11 @@ public class User {
         this.score = score;
     }
 
-    public String getHashedPassword() {
-        return hashedPassword;
+    public String getPassword() {
+        return password;
     }
 
-    public void setHashedPassword(String hashedPassword) {
-        this.hashedPassword = hashedPassword;
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

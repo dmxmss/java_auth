@@ -2,5 +2,5 @@ CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     name VARCHAR(50) NOT NULL UNIQUE,
     score INTEGER NOT NULL DEFAULT 0,
-    hashed_password TEXT NOT NULL
+    password TEXT NOT NULL
 );
