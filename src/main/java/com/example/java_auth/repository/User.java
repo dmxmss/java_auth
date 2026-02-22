@@ -24,6 +24,11 @@ public class User {
         this.hashedPassword = hashedPassword;
     }
 
+    public User(String name, String hashedPassword) {
+        this.name = name;
+        this.hashedPassword = hashedPassword;
+    }
+
     public User() {}
 
 
